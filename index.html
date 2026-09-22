@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Shubh Agrawal — AI/ML Engineer</title>
   
   <!-- Fonts -->
@@ -19,6 +19,17 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden !important;
+      position: relative;
+    }
+
     ::selection {
       background-color: #6366f1 !important;
       color: #ffffff !important;
@@ -32,25 +43,24 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: #040407;
       color: #f1f5f9;
-      overflow-x: hidden;
     }
     .font-syne { font-family: 'Syne', sans-serif; }
     .font-mono { font-family: 'JetBrains Mono', monospace; }
 
-    /* Responsive Typography: Mobile wraps boldly, Desktop stays single row */
-    .hero-title-responsive {
+    /* Centered Hero Heading */
+    .hero-heading-mobile {
       font-family: 'Syne', sans-serif;
       font-weight: 900;
       text-transform: uppercase;
-      line-height: 1.15;
       text-align: center;
-      font-size: clamp(1.4rem, 6vw, 2.2rem);
-      white-space: normal;
+      line-height: 1.15;
+      font-size: clamp(1.5rem, 6.8vw, 2.3rem);
+      width: 100%;
+      margin: 0 auto;
     }
     @media (min-width: 1024px) {
-      .hero-title-responsive {
-        font-size: clamp(22px, 2.7vw, 38px);
-        white-space: nowrap;
+      .hero-heading-mobile {
+        font-size: clamp(24px, 2.8vw, 42px);
         line-height: 1.1;
       }
     }
@@ -103,20 +113,20 @@
     }
 
     /* Globe-Matched Portal Sizing */
-    .globe-matched-portal {
-      width: 230px;
-      height: 230px;
+    .globe-portal-box {
+      width: 220px;
+      height: 220px;
     }
     @media (min-width: 640px) {
-      .globe-matched-portal {
-        width: 340px;
-        height: 340px;
+      .globe-portal-box {
+        width: 320px;
+        height: 320px;
       }
     }
     @media (min-width: 1024px) {
-      .globe-matched-portal {
-        width: 440px;
-        height: 440px;
+      .globe-portal-box {
+        width: 400px;
+        height: 400px;
       }
     }
 
@@ -126,15 +136,15 @@
       height: 100%;
       object-fit: cover;
       object-position: top;
-      opacity: 0.85;
+      opacity: 0.86;
       mix-blend-mode: screen;
-      mask-image: radial-gradient(circle at 50% 46%, black 45%, rgba(0,0,0,0.6) 65%, transparent 80%);
-      -webkit-mask-image: radial-gradient(circle at 50% 46%, black 45%, rgba(0,0,0,0.6) 65%, transparent 80%);
+      mask-image: radial-gradient(circle at 50% 45%, black 45%, rgba(0,0,0,0.65) 65%, transparent 80%);
+      -webkit-mask-image: radial-gradient(circle at 50% 45%, black 45%, rgba(0,0,0,0.65) 65%, transparent 80%);
       filter: contrast(120%) brightness(110%);
     }
 
     .halo-ambient-glow {
-      background: radial-gradient(circle at center, rgba(99, 102, 241, 0.5) 0%, rgba(56, 189, 248, 0.2) 50%, transparent 75%);
+      background: radial-gradient(circle at center, rgba(99, 102, 241, 0.55) 0%, rgba(56, 189, 248, 0.25) 50%, transparent 75%);
       animation: pulse-halo 4s ease-in-out infinite alternate;
     }
     @keyframes pulse-halo {
@@ -194,11 +204,11 @@
     <span id="cursor-label">VIEW</span>
   </div>
 
-  <!-- FULLSCREEN 3D WEBGL GLOBE -->
-  <canvas id="fullscreen-canvas" class="fixed top-0 left-0 w-screen h-screen z-0 pointer-events-none"></canvas>
+  <!-- FULLSCREEN 3D WEBGL GLOBE (FIXED & CENTERED) -->
+  <canvas id="fullscreen-canvas" class="fixed inset-0 w-full h-full z-0 pointer-events-none"></canvas>
 
   <!-- NAVIGATION -->
-  <header class="fixed top-4 left-0 right-0 z-50 flex justify-center px-3">
+  <header class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 w-full">
     <nav class="flex items-center justify-between px-5 py-2.5 w-full max-w-5xl rounded-full bg-[#090b14]/95 border border-white/10 shadow-2xl backdrop-blur-md">
       <a href="#" class="font-syne text-xs sm:text-sm font-bold tracking-wider text-white flex items-center gap-2 magnetic-target">
         <span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
@@ -227,30 +237,32 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative z-10 min-h-screen flex flex-col justify-between items-center pt-24 sm:pt-28 pb-8 px-4 text-center">
+  <!-- HERO SECTION (STRICTLY CENTERED FOR MOBILE & DESKTOP) -->
+  <section class="relative z-10 min-h-screen w-full flex flex-col justify-between items-center pt-24 sm:pt-28 pb-8 px-4 text-center">
     
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none select-none -z-10 w-full">
+    <!-- Background Watermark -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none select-none -z-10 w-full overflow-hidden">
       <h1 class="font-syne text-[14vw] font-black uppercase tracking-tighter text-white/[0.04] leading-none whitespace-nowrap">
         SHUBH AGRAWAL
       </h1>
     </div>
 
     <!-- Status Badge -->
-    <div class="flex flex-col items-center">
+    <div class="w-full flex justify-center">
       <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#090b14] border border-white/10 text-[11px] sm:text-xs font-mono text-neutral-300 shadow-xl">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
         AI/ML Engineer • Bansal Institute Bhopal
       </div>
     </div>
 
-    <!-- CENTERPIECE -->
-    <div class="my-auto flex flex-col items-center relative w-full max-w-4xl py-2">
+    <!-- CENTERPIECE (PHOTO + HEADING IN ONE PERFECT CENTER COLUMN) -->
+    <div class="my-auto w-full max-w-3xl mx-auto flex flex-col items-center justify-center text-center py-2">
       
-      <div class="relative flex items-center justify-center" id="dennis-card-wrapper">
+      <!-- Photo Portal Centerpiece -->
+      <div class="relative flex items-center justify-center mx-auto" id="dennis-card-wrapper">
         <div class="halo-ambient-glow absolute w-full h-full rounded-full blur-2xl pointer-events-none"></div>
 
-        <div class="globe-matched-portal relative rounded-full overflow-hidden flex items-center justify-center pointer-events-none">
+        <div class="globe-portal-box relative rounded-full overflow-hidden flex items-center justify-center pointer-events-none">
           <img 
             id="user-portrait-img"
             src="https://github.com/shubhuagarwal237.png" 
@@ -260,18 +272,18 @@
           />
         </div>
 
-        <div class="absolute bottom-2 px-3.5 py-1 rounded-full bg-black/85 border border-white/10 backdrop-blur-md text-center pointer-events-none shadow-2xl">
+        <div class="absolute bottom-2 px-3.5 py-1 rounded-full bg-black/85 border border-white/10 backdrop-blur-md text-center pointer-events-none shadow-2xl whitespace-nowrap">
           <span class="font-syne text-[11px] sm:text-xs font-bold text-white tracking-wider block">SHUBH AGRAWAL</span>
           <span class="text-[9px] sm:text-[10px] font-mono text-indigo-400">Bhopal, MP • Bansal Institute</span>
         </div>
       </div>
 
-      <!-- RESPONSIVE HEADING -->
-      <div class="mt-5 w-full px-2 flex flex-col items-center">
-        <h3 class="hero-title-responsive text-white hero-heading-glow select-none">
+      <!-- Centered Responsive Heading -->
+      <div class="mt-5 w-full max-w-xl mx-auto px-2 flex flex-col items-center text-center">
+        <h3 class="hero-heading-mobile text-white hero-heading-glow select-none">
           ARCHITECTING APPLIED AI <span class="text-indigo-400">&</span> MACHINE LEARNING
         </h3>
-        <p class="text-neutral-300 text-xs sm:text-sm font-normal max-w-md sm:max-w-xl mx-auto mt-2.5 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+        <p class="text-neutral-300 text-xs sm:text-sm font-normal max-w-md mx-auto mt-2.5 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] text-center">
           Specializing in predictive models, automated image curation pipelines, and scalable Python architectures.
         </p>
       </div>
@@ -279,7 +291,7 @@
     </div>
 
     <!-- Bottom Explore Button -->
-    <div class="flex flex-col items-center gap-2">
+    <div class="w-full flex justify-center">
       <a href="#projects" class="px-6 py-2 rounded-full bg-white text-black font-mono text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-all shadow-xl magnetic-target">
         Explore Live Artifacts ↓
       </a>
@@ -287,8 +299,8 @@
 
   </section>
 
-  <!-- INFINITE MARQUEE -->
-  <div class="relative z-20 py-4 sm:py-6 bg-[#090b14] border-y border-white/10 overflow-hidden my-8 sm:my-12">
+  <!-- INFINITE MARQUEE (NO OVERFLOW) -->
+  <div class="relative z-20 py-4 sm:py-6 bg-[#090b14] border-y border-white/10 overflow-hidden w-full my-8 sm:my-12">
     <div class="marquee-track flex items-center gap-8 sm:gap-12 font-syne text-lg sm:text-3xl font-extrabold uppercase tracking-wider text-neutral-400 select-none">
       <span class="text-white flex items-center gap-3 sm:gap-4">SHUBH AGRAWAL <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-indigo-500"></span></span>
       <span>AI & MACHINE LEARNING</span>
@@ -300,10 +312,10 @@
   </div>
 
   <!-- SOLID COMPARTMENTS -->
-  <div class="relative z-10 space-y-12 sm:space-y-16 pb-20">
+  <div class="relative z-10 space-y-12 sm:space-y-16 pb-20 w-full">
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="px-4 sm:px-6 max-w-5xl mx-auto">
+    <section id="about" class="px-4 sm:px-6 max-w-5xl mx-auto w-full">
       <div class="solid-compartment p-6 sm:p-12 rounded-2xl sm:rounded-3xl">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
           <div class="md:col-span-4">
@@ -337,7 +349,7 @@
     </section>
 
     <!-- LIVE PROJECTS SECTION -->
-    <section id="projects" class="px-4 sm:px-6 max-w-5xl mx-auto">
+    <section id="projects" class="px-4 sm:px-6 max-w-5xl mx-auto w-full">
       <div class="solid-compartment p-6 sm:p-12 rounded-2xl sm:rounded-3xl">
         <div class="mb-8">
           <div class="flex items-center justify-between flex-wrap gap-3">
@@ -421,7 +433,7 @@
     </section>
 
     <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="px-4 sm:px-6 max-w-5xl mx-auto">
+    <section id="experience" class="px-4 sm:px-6 max-w-5xl mx-auto w-full">
       <div class="solid-compartment p-6 sm:p-12 rounded-2xl sm:rounded-3xl">
         <div class="mb-8">
           <span class="text-xs font-mono uppercase text-indigo-400 tracking-wider">03 // Track Record</span>
@@ -455,7 +467,7 @@
     </section>
 
     <!-- ARSENAL / SKILLS -->
-    <section id="skills" class="px-4 sm:px-6 max-w-5xl mx-auto">
+    <section id="skills" class="px-4 sm:px-6 max-w-5xl mx-auto w-full">
       <div class="solid-compartment p-6 sm:p-12 rounded-2xl sm:rounded-3xl">
         <div class="mb-8">
           <span class="text-xs font-mono uppercase text-indigo-400 tracking-wider">04 // Matrix</span>
@@ -507,11 +519,11 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="px-4 sm:px-6 max-w-4xl mx-auto">
+    <section id="contact" class="px-4 sm:px-6 max-w-4xl mx-auto w-full">
       <div class="solid-compartment p-6 sm:p-12 rounded-2xl sm:rounded-3xl text-center">
         <span class="text-xs font-mono uppercase text-indigo-400 tracking-wider">05 // Direct Contact</span>
         <h2 class="font-syne text-3xl sm:text-5xl font-extrabold mt-1 text-white">Let's Connect</h2>
-        <p class="text-neutral-400 text-xs sm:text-sm max-w-md mx-auto mt-2 mb-6">
+        <p class="text-neutral-400 text-xs sm:text-sm max-w-md mx-auto mt-2 mb-6 text-center">
           Available for AI/ML Engineering roles and technical collaborations.
         </p>
 
@@ -531,7 +543,7 @@
           </button>
         </div>
 
-        <p id="copy-status" class="text-emerald-400 text-xs font-mono mt-2.5 opacity-0 transition-opacity">
+        <p id="copy-status" class="text-emerald-400 text-xs font-mono mt-2.5 opacity-0 transition-opacity text-center">
           ✓ Copied: shubhuagarwal237@gmail.com[cite: 2]
         </p>
 
@@ -549,7 +561,7 @@
       </div>
     </section>
 
-    <footer class="py-6 text-center text-neutral-500 text-xs font-mono">
+    <footer class="py-6 text-center text-neutral-500 text-xs font-mono w-full">
       © 2026 Shubh Agrawal • Built with Three.js & GSAP.
     </footer>
   </div>
@@ -643,7 +655,7 @@
     </div>
   </div>
 
-  <!-- SCRIPT ENGINE -->
+  <!-- SCRIPT ENGINE (THREE.JS + SCROLL PARALLAX) -->
   <script>
     lucide.createIcons();
 
@@ -690,7 +702,7 @@
       setTimeout(() => { btnText.innerText = "Copy Email"; status.style.opacity = '0'; }, 2500);
     }
 
-    // 4. THREE.JS GLOBE
+    // 4. THREE.JS GLOBE & SCROLL PARALLAX
     const canvas = document.getElementById('fullscreen-canvas');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -706,6 +718,7 @@
     });
 
     const cosmosGroup = new THREE.Group();
+    // Default Y offset aligned with centerpiece
     cosmosGroup.position.set(0, 0.35, 0);
     scene.add(cosmosGroup);
 
@@ -738,6 +751,16 @@
       cosmosGroup.rotation.y += (e.clientX - prevMouse.x) * 0.005;
       cosmosGroup.rotation.x += (e.clientY - prevMouse.y) * 0.005;
       prevMouse.x = e.clientX; prevMouse.y = e.clientY;
+    });
+
+    // SCROLL PARALLAX: Globe smoothly slides down when user scrolls down
+    window.addEventListener('scroll', () => {
+      gsap.to(cosmosGroup.position, {
+        y: 0.35 - (window.scrollY / window.innerHeight) * 2.8,
+        duration: 0.3,
+        ease: 'power1.out',
+        overwrite: 'auto'
+      });
     });
 
     function animate() {
