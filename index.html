@@ -47,25 +47,7 @@
     .font-syne { font-family: 'Syne', sans-serif; }
     .font-mono { font-family: 'JetBrains Mono', monospace; }
 
-    /* Centered Hero Heading */
-    .hero-heading-mobile {
-      font-family: 'Syne', sans-serif;
-      font-weight: 900;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 1.15;
-      font-size: clamp(1.5rem, 6.8vw, 2.3rem);
-      width: 100%;
-      margin: 0 auto;
-    }
-    @media (min-width: 1024px) {
-      .hero-heading-mobile {
-        font-size: clamp(24px, 2.8vw, 42px);
-        line-height: 1.1;
-      }
-    }
-
-    /* Dennis Snellenberg Follower Cursor (Desktop Only) */
+    /* Dennis Follower Cursor (Desktop Only) */
     @media (min-width: 768px) {
       body { cursor: none; }
       #dennis-cursor {
@@ -204,7 +186,7 @@
     <span id="cursor-label">VIEW</span>
   </div>
 
-  <!-- FULLSCREEN 3D WEBGL GLOBE (FIXED & CENTERED) -->
+  <!-- FULLSCREEN 3D WEBGL GLOBE -->
   <canvas id="fullscreen-canvas" class="fixed inset-0 w-full h-full z-0 pointer-events-none"></canvas>
 
   <!-- NAVIGATION -->
@@ -237,10 +219,9 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION (STRICTLY CENTERED FOR MOBILE & DESKTOP) -->
+  <!-- HERO SECTION -->
   <section class="relative z-10 min-h-screen w-full flex flex-col justify-between items-center pt-24 sm:pt-28 pb-8 px-4 text-center">
     
-    <!-- Background Watermark -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none select-none -z-10 w-full overflow-hidden">
       <h1 class="font-syne text-[14vw] font-black uppercase tracking-tighter text-white/[0.04] leading-none whitespace-nowrap">
         SHUBH AGRAWAL
@@ -255,8 +236,8 @@
       </div>
     </div>
 
-    <!-- CENTERPIECE (PHOTO + HEADING IN ONE PERFECT CENTER COLUMN) -->
-    <div class="my-auto w-full max-w-3xl mx-auto flex flex-col items-center justify-center text-center py-2">
+    <!-- CENTERPIECE -->
+    <div class="my-auto w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center py-2">
       
       <!-- Photo Portal Centerpiece -->
       <div class="relative flex items-center justify-center mx-auto" id="dennis-card-wrapper">
@@ -278,12 +259,12 @@
         </div>
       </div>
 
-      <!-- Centered Responsive Heading -->
-      <div class="mt-5 w-full max-w-xl mx-auto px-2 flex flex-col items-center text-center">
-        <h3 class="hero-heading-mobile text-white hero-heading-glow select-none">
+      <!-- SINGLE ROW ON DESKTOP, BALANCED WRAP ON MOBILE -->
+      <div class="mt-5 w-full max-w-6xl mx-auto px-4 flex flex-col items-center text-center">
+        <h3 class="font-syne font-black uppercase text-white hero-heading-glow text-center leading-tight text-2xl sm:text-3xl lg:text-[2.3vw] lg:whitespace-nowrap select-none">
           ARCHITECTING APPLIED AI <span class="text-indigo-400">&</span> MACHINE LEARNING
         </h3>
-        <p class="text-neutral-300 text-xs sm:text-sm font-normal max-w-md mx-auto mt-2.5 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] text-center">
+        <p class="text-neutral-300 text-xs sm:text-sm font-normal max-w-xl mx-auto mt-3 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] text-center">
           Specializing in predictive models, automated image curation pipelines, and scalable Python architectures.
         </p>
       </div>
@@ -299,7 +280,7 @@
 
   </section>
 
-  <!-- INFINITE MARQUEE (NO OVERFLOW) -->
+  <!-- INFINITE MARQUEE -->
   <div class="relative z-20 py-4 sm:py-6 bg-[#090b14] border-y border-white/10 overflow-hidden w-full my-8 sm:my-12">
     <div class="marquee-track flex items-center gap-8 sm:gap-12 font-syne text-lg sm:text-3xl font-extrabold uppercase tracking-wider text-neutral-400 select-none">
       <span class="text-white flex items-center gap-3 sm:gap-4">SHUBH AGRAWAL <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-indigo-500"></span></span>
@@ -324,23 +305,23 @@
           </div>
           <div class="md:col-span-8 space-y-3 sm:space-y-4 text-neutral-200 text-sm sm:text-base leading-relaxed">
             <p>
-              I am a Computer Science undergraduate specializing in Artificial Intelligence & Machine Learning at <strong class="text-white">Bansal Institute of Science & Technology, Bhopal</strong>[cite: 2].
+              I am a Computer Science undergraduate specializing in Artificial Intelligence & Machine Learning at <strong class="text-white">Bansal Institute of Science & Technology, Bhopal</strong>.
             </p>
             <p class="text-neutral-400">
-              My engineering work emphasizes production-grade pipelines: optimizing automated image quality scoring using Laplacian variance, real-time video processing loops with minimal CPU overhead, and architecting predictive tabular ML models[cite: 2, 4].
+              My engineering work emphasizes production-grade pipelines: optimizing automated image quality scoring using Laplacian variance, real-time video processing loops with minimal CPU overhead, and architecting predictive tabular ML models.
             </p>
             <div class="pt-3 grid grid-cols-3 gap-3 font-mono text-[11px] sm:text-xs">
               <div class="solid-card p-3 sm:p-4 rounded-xl text-center">
                 <span class="text-indigo-400 font-bold block text-sm sm:text-base font-syne">Bansal</span>
-                <span class="text-neutral-400">Bhopal[cite: 2]</span>
+                <span class="text-neutral-400">Bhopal</span>
               </div>
               <div class="solid-card p-3 sm:p-4 rounded-xl text-center">
                 <span class="text-sky-400 font-bold block text-sm sm:text-base font-syne">AI / ML</span>
-                <span class="text-neutral-400">Core Focus[cite: 2]</span>
+                <span class="text-neutral-400">Core Focus</span>
               </div>
               <div class="solid-card p-3 sm:p-4 rounded-xl text-center">
                 <span class="text-emerald-400 font-bold block text-sm sm:text-base font-syne">Real-Time</span>
-                <span class="text-neutral-400">Inference[cite: 2]</span>
+                <span class="text-neutral-400">Inference</span>
               </div>
             </div>
           </div>
@@ -370,19 +351,19 @@
           <div class="solid-card p-5 sm:p-8 rounded-2xl flex flex-col justify-between" data-cursor="DEMO">
             <div>
               <div class="flex items-center justify-between mb-3">
-                <span class="text-[11px] font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full border border-indigo-500/20">Computer Vision[cite: 2]</span>
-                <span class="text-xs font-mono text-neutral-500">2024[cite: 2]</span>
+                <span class="text-[11px] font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full border border-indigo-500/20">Computer Vision</span>
+                <span class="text-xs font-mono text-neutral-500">2024</span>
               </div>
               <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-2">AI Smart Shot Selector</h3>
               <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Burst photo curation system[cite: 2]. Evaluates burst images using Laplacian variance sharpness scoring, automatically moves blurry duplicate copies to the Trash Bin, and retains the single best shot[cite: 2, 4].
+                Burst photo curation system. Evaluates burst images using Laplacian variance sharpness scoring, automatically moves blurry duplicate copies to the Trash Bin, and retains the single best shot.
               </p>
             </div>
             <div>
               <div class="flex flex-wrap gap-1.5 text-[11px] font-mono text-neutral-400 border-t border-white/5 py-3">
-                <span class="px-2 py-0.5 bg-white/5 rounded">Python[cite: 2]</span>
-                <span class="px-2 py-0.5 bg-white/5 rounded">OpenCV[cite: 2]</span>
-                <span class="px-2 py-0.5 bg-white/5 rounded">Laplacian[cite: 2]</span>
+                <span class="px-2 py-0.5 bg-white/5 rounded">Python</span>
+                <span class="px-2 py-0.5 bg-white/5 rounded">OpenCV</span>
+                <span class="px-2 py-0.5 bg-white/5 rounded">Laplacian</span>
               </div>
               <button onclick="openSmartShotModal()" class="w-full mt-2 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-all">
                 <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Launch Live Demo
@@ -394,19 +375,19 @@
           <div class="solid-card p-5 sm:p-8 rounded-2xl flex flex-col justify-between" data-cursor="DEMO">
             <div>
               <div class="flex items-center justify-between mb-3">
-                <span class="text-[11px] font-mono text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded-full border border-sky-500/20">Real-Time Video[cite: 2]</span>
-                <span class="text-xs font-mono text-neutral-500">2024[cite: 2]</span>
+                <span class="text-[11px] font-mono text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded-full border border-sky-500/20">Real-Time Video</span>
+                <span class="text-xs font-mono text-neutral-500">2024</span>
               </div>
               <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-2">Face Detection & Tracking</h3>
               <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Optimized video inference pipeline using Haar Cascades[cite: 2]. Integrated adaptive histogram equalization for variable lighting and low-CPU Region-of-Interest tracking[cite: 2].
+                Optimized video inference pipeline using Haar Cascades. Integrated adaptive histogram equalization for variable lighting and low-CPU Region-of-Interest tracking.
               </p>
             </div>
             <div>
               <div class="flex flex-wrap gap-1.5 text-[11px] font-mono text-neutral-400 border-t border-white/5 py-3">
-                <span class="px-2 py-0.5 bg-white/5 rounded">OpenCV[cite: 2]</span>
-                <span class="px-2 py-0.5 bg-white/5 rounded">Haar Cascades[cite: 2]</span>
-                <span class="px-2 py-0.5 bg-white/5 rounded">ROI Tracking[cite: 2]</span>
+                <span class="px-2 py-0.5 bg-white/5 rounded">OpenCV</span>
+                <span class="px-2 py-0.5 bg-white/5 rounded">Haar Cascades</span>
+                <span class="px-2 py-0.5 bg-white/5 rounded">ROI Tracking</span>
               </div>
               <button onclick="openFaceDetectModal()" class="w-full mt-2 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-mono text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-all">
                 <i data-lucide="scan-face" class="w-3.5 h-3.5"></i> Launch Live Demo
@@ -446,20 +427,20 @@
               <h3 class="font-syne text-lg sm:text-xl font-bold text-white">Data Science Apprentice</h3>
               <span class="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">Virtual</span>
             </div>
-            <p class="text-neutral-400 text-xs font-mono">NSDC Apprentice Program • Aug 2026[cite: 2]</p>
+            <p class="text-neutral-400 text-xs font-mono">NSDC Apprentice Program • Aug 2026</p>
             <p class="text-neutral-300 text-xs sm:text-sm pt-1 leading-relaxed">
-              Developed Python scripts for exploratory data analysis (EDA), data cleaning, and statistical feature transformations[cite: 2]. Benchmarked predictive modeling algorithms across structured tabular datasets[cite: 2].
+              Developed Python scripts for exploratory data analysis (EDA), data cleaning, and statistical feature transformations. Benchmarked predictive modeling algorithms across structured tabular datasets.
             </p>
           </div>
 
           <div class="solid-card p-5 sm:p-8 rounded-2xl space-y-2">
             <div class="flex items-center gap-3">
               <h3 class="font-syne text-lg sm:text-xl font-bold text-white">Artificial Intelligence Intern</h3>
-              <span class="text-[10px] font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded">Bhopal, MP[cite: 2]</span>
+              <span class="text-[10px] font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded">Bhopal, MP</span>
             </div>
-            <p class="text-neutral-400 text-xs font-mono">Edunet Foundation • Dec 2024 – Jan 2025[cite: 2]</p>
+            <p class="text-neutral-400 text-xs font-mono">Edunet Foundation • Dec 2024 – Jan 2025</p>
             <p class="text-neutral-300 text-xs sm:text-sm pt-1 leading-relaxed">
-              Engineered machine learning and computer vision workflows in Python focusing on automated feature extraction[cite: 2]. Augmented training datasets and measured model inference latency across sample batches[cite: 2].
+              Engineered machine learning and computer vision workflows in Python focusing on automated feature extraction. Augmented training datasets and measured model inference latency across sample batches.
             </p>
           </div>
         </div>
@@ -478,29 +459,29 @@
           <div class="solid-card p-4 sm:p-6 rounded-xl">
             <h4 class="text-indigo-400 font-bold uppercase mb-3 tracking-wider text-[11px] sm:text-xs">Languages</h4>
             <ul class="space-y-1.5 text-neutral-300 text-[11px] sm:text-xs">
-              <li>• Python[cite: 2]</li>
-              <li>• C++[cite: 2]</li>
-              <li>• SQL (MySQL)[cite: 2]</li>
-              <li>• C & Java[cite: 2]</li>
+              <li>• Python</li>
+              <li>• C++</li>
+              <li>• SQL (MySQL)</li>
+              <li>• C & Java</li>
             </ul>
           </div>
 
           <div class="solid-card p-4 sm:p-6 rounded-xl">
             <h4 class="text-sky-400 font-bold uppercase mb-3 tracking-wider text-[11px] sm:text-xs">AI / ML Stack</h4>
             <ul class="space-y-1.5 text-neutral-300 text-[11px] sm:text-xs">
-              <li>• Machine Learning[cite: 2, 3]</li>
-              <li>• OpenCV[cite: 2]</li>
-              <li>• Haar Cascade[cite: 2]</li>
-              <li>• Feature Eng.[cite: 2]</li>
+              <li>• Machine Learning</li>
+              <li>• OpenCV</li>
+              <li>• Haar Cascade</li>
+              <li>• Feature Eng.</li>
             </ul>
           </div>
 
           <div class="solid-card p-4 sm:p-6 rounded-xl">
             <h4 class="text-emerald-400 font-bold uppercase mb-3 tracking-wider text-[11px] sm:text-xs">Libraries</h4>
             <ul class="space-y-1.5 text-neutral-300 text-[11px] sm:text-xs">
-              <li>• NumPy & Pandas[cite: 2]</li>
-              <li>• Scikit-Learn[cite: 2]</li>
-              <li>• Matplotlib[cite: 2]</li>
+              <li>• NumPy & Pandas</li>
+              <li>• Scikit-Learn</li>
+              <li>• Matplotlib</li>
               <li>• Three.js</li>
             </ul>
           </div>
@@ -508,10 +489,10 @@
           <div class="solid-card p-4 sm:p-6 rounded-xl">
             <h4 class="text-purple-400 font-bold uppercase mb-3 tracking-wider text-[11px] sm:text-xs">Core Tools</h4>
             <ul class="space-y-1.5 text-neutral-300 text-[11px] sm:text-xs">
-              <li>• DSA Concepts[cite: 2]</li>
-              <li>• OOP Concepts[cite: 2]</li>
-              <li>• Git & GitHub[cite: 2]</li>
-              <li>• VS Code & Colab[cite: 2]</li>
+              <li>• DSA Concepts</li>
+              <li>• OOP Concepts</li>
+              <li>• Git & GitHub</li>
+              <li>• VS Code & Colab</li>
             </ul>
           </div>
         </div>
@@ -544,7 +525,7 @@
         </div>
 
         <p id="copy-status" class="text-emerald-400 text-xs font-mono mt-2.5 opacity-0 transition-opacity text-center">
-          ✓ Copied: shubhuagarwal237@gmail.com[cite: 2]
+          ✓ Copied: shubhuagarwal237@gmail.com
         </p>
 
         <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap justify-center items-center gap-3 font-mono text-xs">
@@ -555,7 +536,7 @@
             <i data-lucide="linkedin" class="w-4 h-4 text-sky-400"></i> LinkedIn
           </a>
           <div class="px-5 py-2 rounded-full bg-white/5 text-neutral-300 border border-white/10 flex items-center gap-2">
-            <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i> +91-9111861056[cite: 2]
+            <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i> +91-9111861056
           </div>
         </div>
       </div>
@@ -574,7 +555,7 @@
         <button onclick="closeModal('modal-smartshot')" class="p-1.5 text-neutral-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
       </div>
       <div class="mt-4 space-y-4">
-        <p class="text-neutral-300 text-xs sm:text-sm">Upload photos or load sample burst to test automated blur purging[cite: 2, 4].</p>
+        <p class="text-neutral-300 text-xs sm:text-sm">Upload photos or load sample burst to test automated blur purging.</p>
         <div class="flex flex-wrap gap-2">
           <label class="cursor-pointer px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-mono text-xs text-white flex items-center gap-2">
             <i data-lucide="upload" class="w-3.5 h-3.5"></i> Upload Photos
@@ -617,7 +598,7 @@
       </div>
       <div class="mt-4 space-y-3">
         <div class="flex justify-between items-center">
-          <p class="text-neutral-300 text-xs">Haar-Cascade emulation with ROI tracking[cite: 2].</p>
+          <p class="text-neutral-300 text-xs">Haar-Cascade emulation with ROI tracking.</p>
           <button id="camera-toggle-btn" onclick="toggleWebcam()" class="px-3 py-1 rounded-full bg-sky-600 hover:bg-sky-500 font-mono text-xs text-white flex items-center gap-1.5">
             <i data-lucide="camera" class="w-3.5 h-3.5"></i> Camera
           </button>
@@ -655,7 +636,7 @@
     </div>
   </div>
 
-  <!-- SCRIPT ENGINE (THREE.JS + SCROLL PARALLAX) -->
+  <!-- SCRIPT ENGINE -->
   <script>
     lucide.createIcons();
 
@@ -718,7 +699,6 @@
     });
 
     const cosmosGroup = new THREE.Group();
-    // Default Y offset aligned with centerpiece
     cosmosGroup.position.set(0, 0.35, 0);
     scene.add(cosmosGroup);
 
@@ -753,7 +733,7 @@
       prevMouse.x = e.clientX; prevMouse.y = e.clientY;
     });
 
-    // SCROLL PARALLAX: Globe smoothly slides down when user scrolls down
+    // SCROLL PARALLAX: Smooth glide on scroll
     window.addEventListener('scroll', () => {
       gsap.to(cosmosGroup.position, {
         y: 0.35 - (window.scrollY / window.innerHeight) * 2.8,
